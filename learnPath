@@ -1,0 +1,53 @@
+1.搭建环境（mvn,boot）
+
+官网：http://projects.spring.io/spring-boot/#quick-start
+
+2.了解注解
+
+（@Target,@Retention,@Documented,@Inherited）
+
+参考：http://www.cnblogs.com/peida/archive/2013/04/24/3036689.html
+
+3.JPA批注
+
+http://www.oracle.com/technetwork/cn/middleware/ias/toplink-jpa-annotations-100895-zhs.html#MappedSuperclass
+
+http://blog.csdn.net/ljhabc1982/article/details/6556349
+
+4. spring mvc常用注解
+
+http://justice-jl.iteye.com/blog/1814980
+
+5.spring boot
+
+官网：http://projects.spring.io/spring-boot/#quick-start
+
+http://blog.csdn.net/isea533/article/details/50281151
+
+6.spring mvn
+
+官网：http://projects.spring.io/spring-boot/#quick-start （与boot一起使用）
+
+教程：http://www.yiibai.com/maven/
+
+7.spring cloud （feign,zuul）
+
+官网：http://projects.spring.io/spring-cloud/
+
+cloud：http://projects.spring.io/spring-cloud/spring-cloud.html#spring-cloud-ribbon-without-eureka
+
+feign：http://www.boyunjian.com/javasrc/com.netflix.feign/feign-core/3.1.0/_/feign/Client.java
+
+8.restFul
+
+参考：http://www.ruanyifeng.com/blog/2014/05/restful_api.html
+
+http://blog.jobbole.com/41233/
+
+9.JpaRepository，Specifications （数据库对象操作）
+
+参考：http://sishuok.com/forum/posts/list/7000.html
+
+http://www.360doc.com/content/15/0404/10/22409769_460519057.shtml
+
+http://docs.spring.io/spring-data/data-jpa/docs/current/reference/html/

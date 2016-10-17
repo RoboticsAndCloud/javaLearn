@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.lonefeifei.mvc.GameControllerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.876 sec - in com.lonefeifei.mvc.GameControllerTest

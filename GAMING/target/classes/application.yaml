@@ -1,0 +1,68 @@
+server:
+#  port: 8552
+  port: 8443
+#  ssl:
+#    key-store: classpath:keystore.p12
+#证书库的访问密码
+#    key-store-password: feifei
+#这个证书的私钥密码为123456
+##    key-password: feifei
+#    keyStoreType: PKCS12
+#    server.ssl.keyAlias: tomcat
+  compression:
+    enabled: true
+    min-response-size: 1024
+    mime-types:
+      - application/json
+      - application/xml
+      - application/xhtml+xml
+  error:
+    path: /application/error
+#  context-path: /v1
+
+project:
+  info:
+    contact: feifei@feifei.com
+    version: 0.0.1
+    department: oped
+    description: Gateway application of meu.
+#  downloadFolder: downloadFolder
+  book-url: http://localhost:8551
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 1000
+    database: 0
+
+#  aop:
+#    proxy-target-class: true
+#  mvc:
+#    throw-exception-if-no-handler-found: true
+#  resources:
+#    add-mappings: false
+  jackson:
+    serialization-inclusion: NON_NULL
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+  datasource:
+    data-source-class-name: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+    url: jdbc:mysql://localhost:3306/game?useUnicode=true&characterEncoding=utf8
+    name:
+    username: root
+    password:
+  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL
+    show_sql: true
+    generate-ddl: true
+    properties:
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: true
+      hibernate.ddl-auto: update
+  level:
+    com.lonefeifei: DEBUG
+#  path:
+#    log

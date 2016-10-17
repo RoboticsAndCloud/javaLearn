@@ -1,0 +1,27 @@
+
+
+        GGGGGGGGGGGGG               AAA               MMMMMMMM               MMMMMMMMIIIIIIIIIINNNNNNNN        NNNNNNNN        GGGGGGGGGGGGG
+     GGG::::::::::::G              A:::A              M:::::::M             M:::::::MI::::::::IN:::::::N       N::::::N     GGG::::::::::::G
+   GG:::::::::::::::G             A:::::A             M::::::::M           M::::::::MI::::::::IN::::::::N      N::::::N   GG:::::::::::::::G
+  G:::::GGGGGGGG::::G            A:::::::A            M:::::::::M         M:::::::::MII::::::IIN:::::::::N     N::::::N  G:::::GGGGGGGG::::G
+ G:::::G       GGGGGG           A:::::::::A           M::::::::::M       M::::::::::M  I::::I  N::::::::::N    N::::::N G:::::G       GGGGGG
+G:::::G                        A:::::A:::::A          M:::::::::::M     M:::::::::::M  I::::I  N:::::::::::N   N::::::NG:::::G
+G:::::G                       A:::::A A:::::A         M:::::::M::::M   M::::M:::::::M  I::::I  N:::::::N::::N  N::::::NG:::::G
+G:::::G    GGGGGGGGGG        A:::::A   A:::::A        M::::::M M::::M M::::M M::::::M  I::::I  N::::::N N::::N N::::::NG:::::G    GGGGGGGGGG
+G:::::G    G::::::::G       A:::::A     A:::::A       M::::::M  M::::M::::M  M::::::M  I::::I  N::::::N  N::::N:::::::NG:::::G    G::::::::G
+G:::::G    GGGGG::::G      A:::::AAAAAAAAA:::::A      M::::::M   M:::::::M   M::::::M  I::::I  N::::::N   N:::::::::::NG:::::G    GGGGG::::G
+G:::::G        G::::G     A:::::::::::::::::::::A     M::::::M    M:::::M    M::::::M  I::::I  N::::::N    N::::::::::NG:::::G        G::::G
+ G:::::G       G::::G    A:::::AAAAAAAAAAAAA:::::A    M::::::M     MMMMM     M::::::M  I::::I  N::::::N     N:::::::::N G:::::G       G::::G
+  G:::::GGGGGGGG::::G   A:::::A             A:::::A   M::::::M               M::::::MII::::::IIN::::::N      N::::::::N  G:::::GGGGGGGG::::G
+   GG:::::::::::::::G  A:::::A               A:::::A  M::::::M               M::::::MI::::::::IN::::::N       N:::::::N   GG:::::::::::::::G
+     GGG::::::GGG:::G A:::::A                 A:::::A M::::::M               M::::::MI::::::::IN::::::N        N::::::N     GGG::::::GGG:::G
+        GGGGGG   GGGGAAAAAAA                   AAAAAAAMMMMMMMM               MMMMMMMMIIIIIIIIIINNNNNNNN         NNNNNNN        GGGGGG   GGGG
+
+
+
+${application.version}                这个是MANIFEST.MF文件中的版本号
+${application.formatted-version} 这个是上面的的版本号前面加v后上括号
+${spring-boot.version}               这个是springboot的版本号
+${spring-boot.formatted-version}同上
+
+

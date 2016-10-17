@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2016 Baidu, Inc. All Rights Reserved.
+  -->
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+     <!--用来设置某一个包或者具体的某一个类的日志打印级别、以及指定<appender><loger>仅有一个name属性，一个可选的level和一个可选的addtivity属性-->
+    <logger name="org.springframework.web" level="DEBUG"/>
+
+    <!-- 定义环境变更，尽量别用绝对路径，如果带参数不同容器路径解释可能不同 -->
+    <property name="LOG_HOME" value="logs/"/>
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--<pattern>%d{H:mm} %-5level [%logger{16}] %msg%n</pattern>-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%logger{16}] [%class:%line] - %m%n</pattern>
+        </encoder>
+        <!--<layout class="ch.qos.logback.classic.PatternLayout">-->
+            <!--<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+        <!--</layout>-->
+
+    </appender>
+
+    <!-- 按日期和大小区分的滚动日志 -->
+    <appender name="DEBUG-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/debug.log</file>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%class:%line] - %m%n</pattern>
+        </encoder>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        // TimeBasedRollingPolicy,FixedWindowRollingPolicy,
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>debug-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <MaxHistory>30</MaxHistory>
+
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 100MB -->
+                <maxFileSize>30MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+    </appender>
+    <!-- 按照每天生成日志文件 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/myApp.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 100MB -->
+                <maxFileSize>30MB</maxFileSize>
+
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <!--<layout class="ch.qos.logback.classic.PatternLayout">-->
+            <!--&lt;!&ndash;<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>&ndash;&gt;-->
+             <!--&lt;!&ndash;时间  进程 左对齐最小宽度5字符 等级 logger名 类名 行， msg, 换行&ndash;&gt;-->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss} [%class:%line] - %m%n</pattern>-->
+            <!--&lt;!&ndash; 时间 类名 行， msg, 换行&ndash;&gt;-->
+        <!--</layout>-->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss} [%class:%line] - %m%n</pattern>-->
+        </encoder>
+    </appender>
+
+    <!-- 用来设置某一个包或者具体的某一个类的日志打印级别，包名要与实际项目一致 -->
+    <logger name="com.bcc" level="debug" appender-ref ="FILE" /> <!-- 将级别为“DEBUG”及大于“DEBUG”的日志信息传递给root处理，本身并不打印 -->
+
+    <root level="info"> <!-- root将级别为“INFO”及大于“INFO”的日志信息交给已经配置好的名为“Console”的appender处理，“Console”appender将信息打印到Console； -->
+        <appender-ref ref="Console" /> <!-- 标识这个appender将会添加到这个logger -->
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<configuration>-->
+<!--<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+    <!--<file>logs/test.log</file>-->
+
+    <!--<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">-->
+        <!--<fileNamePattern>tests.%i.log.zip</fileNamePattern>-->
+        <!--<minIndex>1</minIndex>-->
+        <!--<maxIndex>3</maxIndex>-->
+    <!--</rollingPolicy>-->
+
+    <!--<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+        <!--<maxFileSize>5MB</maxFileSize>-->
+    <!--</triggeringPolicy>-->
+    <!--<encoder>-->
+        <!--<pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>-->
+    <!--</encoder>-->
+<!--</appender>-->
+
+    <!--<property name="LOG_HOME" value="logs/"/>-->
+    <!--<appender name="Console" class="ch.qos.logback.core.ConsoleAppender">-->
+        <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+            <!--<level>INFO</level>-->
+            <!--<onMatch>ACCEPT</onMatch>-->
+            <!--<onMismatch>DENY</onMismatch>-->
+        <!--</filter>-->
+    <!--<encoder>-->
+    <!--<pattern>%d{H:mm} %-5level [%logger{16}] %msg%n</pattern>-->
+    <!--</encoder>-->
+    <!--</appender>-->
+
+<!--<root level="DEBUG">-->
+    <!--<appender-ref ref="FILE" />-->
+    <!--<appender-ref ref="Console" />-->
+<!--</root>-->
+<!--</configuration>-->
+
+

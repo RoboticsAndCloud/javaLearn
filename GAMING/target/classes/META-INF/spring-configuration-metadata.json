@@ -1,0 +1,47 @@
+{
+  "groups": [
+    {
+      "name": "project",
+      "type": "com.lonefeifei.configuration.properties.AppProperties",
+      "sourceType": "com.lonefeifei.configuration.properties.AppProperties"
+    },
+    {
+      "name": "project.info",
+      "type": "com.lonefeifei.configuration.properties.AppInfo",
+      "sourceType": "com.lonefeifei.configuration.properties.AppInfo"
+    }
+  ],
+  "properties": [
+    {
+      "name": "project.download-folder",
+      "type": "java.lang.String",
+      "sourceType": "com.lonefeifei.configuration.properties.AppProperties"
+    },
+    {
+      "name": "project.info",
+      "type": "com.lonefeifei.configuration.properties.AppInfo",
+      "sourceType": "com.lonefeifei.configuration.properties.AppProperties"
+    },
+    {
+      "name": "project.info.contact",
+      "type": "java.lang.String",
+      "sourceType": "com.lonefeifei.configuration.properties.AppInfo"
+    },
+    {
+      "name": "project.info.department",
+      "type": "java.lang.String",
+      "sourceType": "com.lonefeifei.configuration.properties.AppInfo"
+    },
+    {
+      "name": "project.info.description",
+      "type": "java.lang.String",
+      "sourceType": "com.lonefeifei.configuration.properties.AppInfo"
+    },
+    {
+      "name": "project.info.version",
+      "type": "java.lang.String",
+      "sourceType": "com.lonefeifei.configuration.properties.AppInfo"
+    }
+  ],
+  "hints": []
+}

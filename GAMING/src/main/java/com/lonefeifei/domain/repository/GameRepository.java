@@ -11,6 +11,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -27,11 +29,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * Created by baidu on 16/8/23.
  */
+//@CacheConfig
 public interface GameRepository extends JpaRepository<Game, Long> , JpaSpecificationExecutor<Game>{
     //, JpaSpecificationExecutor<Game>
 
     //常用方式：使用根据属性名查询
     Optional<Game> findOneById(int id);
+//    @Cacheable
     Optional<Game> findOneByZoneAndName(String zone, String name);
 
     // 限制结果数量：查找前10条

@@ -12,6 +12,8 @@ import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -60,6 +62,7 @@ public class GameController {
     private GameRepository gameRepository;
 
     @RequestMapping(method = RequestMethod.GET)
+//    @Cacheable
     public List<Game> getGames(String times) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         LOG.info("authentiation {}", authentication);
@@ -142,6 +145,7 @@ public class GameController {
     }
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
+    @Cacheable(value="people", key = "#p0")
     public GameDto findGame(@PathVariable("name") String name) {
         Optional<Game> game =  gameRepository.findOneByZoneAndName("default", name);
         GameDto dto =  new GameDto().fromModel(game.get());

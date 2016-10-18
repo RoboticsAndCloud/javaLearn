@@ -9,6 +9,7 @@ import org.springframework.boot.Banner;
 import org.springframework.boot.ResourceBanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
@@ -25,6 +26,7 @@ import java.net.InetAddress;
 @SpringBootApplication
 @EnableFeignClients
 //@EnableScheduling
+@EnableCaching
 public class GameApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(GameApplication.class);

@@ -8,8 +8,10 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -18,7 +20,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 /**
  * Created by baidu on 16/10/15.
  */
-//@Configuration
+@Configuration
 public class RedisConfig {
 
 //    @Bean
@@ -64,5 +66,16 @@ public class RedisConfig {
         jackson2JsonRedisSerializer.setObjectMapper(om);
         template.setValueSerializer(jackson2JsonRedisSerializer);
         template.setKeySerializer(template.getStringSerializer());
+    }
+
+    /**
+     * 缓存管理器.
+     * @param redisTemplate
+     * @return
+     */
+    @Bean
+    public CacheManager cacheManager(RedisTemplate<?,?> redisTemplate) {
+        CacheManager cacheManager = new RedisCacheManager(redisTemplate);
+        return cacheManager;
     }
 }

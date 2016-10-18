@@ -9,7 +9,7 @@ GAME为完整的示例程序，环境：java8, maven, Intellij IDEA, 通过 mvn 
 包括内容为：
 
 1.配置文件
-2.数据访问（mysql, redis）
+2.数据访问（mysql, redis, cache）
 3.定时任务
 4.调用远程http服务
 5.权限控制
